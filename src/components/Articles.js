@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getArticles} from '../../src/apiProvider/apiProvider'; 
+import { getArticles} from '../../src/apiProvider/apiProvider';
+import { sort } from '../helpers/sortDate';
 import ArticlesListItem from '../components/ArticleListItem/ArticleListItem';
 import * as ui from './ArticlesUI';
 import Checkbox from './Checkbox/Checkbox';
@@ -30,7 +31,9 @@ const Articles = () => {
   }, []);
 
   const sortByDate = () => {
-    console.log('will be sorting by date');
+    sort(articlesList);
+    const sortedArticles = sort(articlesList);;
+    setArticlesList(sortedArticles);
   }
 
   const onCheckboxClicked = (checkBoxType) => {
