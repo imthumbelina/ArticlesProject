@@ -10,24 +10,32 @@ export const Container = styled.div`
 
 export const ArticlesContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   font-size: ${mediumFont};
   font-family: ${fontFamily};
   flex: 80%;
-  background-color: red;
+`;
 
+export const ArticlesListContainer = styled.div`
+  flex: 80%;
   @media (max-width: 800px) {
-      flex: 100%;
-  }
+    flex: 100%;
+}
 `;
 
 export const FiltersContainer = styled.div`
   flex: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  align-items: center;
   @media (max-width: 800px) {
     flex: 50%;
-    background-color: yellow;
+    height: 15%;
 }
 `;
 
@@ -52,3 +60,13 @@ export const SortButton = styled.button`
   margin: 0.5em;
   padding: 0.25em 1em;
 `;
+
+export const Checkboxes = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+export const CheckboxesText = styled.div`
+  font-size: ${largeFont};
+`

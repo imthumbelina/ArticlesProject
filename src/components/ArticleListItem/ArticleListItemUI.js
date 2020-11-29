@@ -19,7 +19,6 @@ export const ImageContainer = styled.div`
 export const ArticleContentContainer = styled.div`
     flex: 80%;
     box-sizing: border-box;
-    padding: 1%;
 
     @media (max-width: 800px) {
         flex: 60%;
@@ -37,15 +36,31 @@ export const ArticleHeader = styled.div`
     flex-direction: row;
     justify-content: space-between;
     font-size: ${largeFont};
-    flex:0 0 25%;
+    flex-wrap: wrap;
+    @media (max-width: 800px) {
+        font-size: ${mediumFont}
+    }
 `;
 
 export const ArticleText = styled.div`
-    flex:0 0 75%;
+
+    @media (max-width: 800px) {
+        display: none;
+      }
 `;
 
 export const ArticleTitle = styled.div`
+    flex: 75%;
+    @media (max-width: 800px) {
+        flex: 100%;
+    }
 `;
 
-export const ArticleDate = styled.div`
+export const ArticleDate = styled.div`  
+    display: flex;
+    justify-content: start;
+    flex 25%;
+    @media (max-width: 800px) {
+        font-size: ${smallFont};
+    }
 `;

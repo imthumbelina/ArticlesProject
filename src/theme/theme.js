@@ -9,7 +9,7 @@ export const accent1 = '#9b8dab';
 
 export const fontFamily = "'Segoe UI', 'Helvetica Neue', sansserif";
 
-export const smallFont = '16px';
+export const smallFont = '20px';
 export const mediumFont = '24px';
 export const largeFont = '30px';
 
