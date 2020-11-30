@@ -1,5 +1,5 @@
-import React from 'react';
-import * as ui from './ArticleListItemUI';
+import React from 'react'
+import * as ui from './ArticleListItemUI'
 
 const ArticlesListItem = (props) => {
   return (
@@ -21,7 +21,7 @@ const ArticlesListItem = (props) => {
         </ui.ArticleText>
       </ui.ArticleContentContainer>
     </ui.ListItemContainer>
-  );
+  )
 }
 
-export default ArticlesListItem;
+export default ArticlesListItem
