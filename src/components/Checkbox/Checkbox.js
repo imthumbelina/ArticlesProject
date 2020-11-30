@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Checkbox = ({ onClick, title = "", checked = false }) => (
-    <label>
-      <input
-        onChange={e => onClick(e.target.checked)}
-        type="checkbox"
-        checked={checked}
-      />
-      {title}
-    </label>
+const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
+  return (
+    <input type={type} name={name} checked={checked} onChange={onChange} />
   );
+};
   
 export default Checkbox;

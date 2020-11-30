@@ -13,22 +13,19 @@ const Articles = () => {
 
   const [backendError, setBackendError] = useState({'backendError': false});
 
-  const initialCheckboxesState = {
-    fashionCheckbox: true,
-    sportsCheckbox: false
-  };
-  const [checkboxState, setCheckboxState] = useState(initialCheckboxesState)
-
   useEffect(() => {
-    getArticles(defaultArticleType).then((res) => {
-      console.log(res.data);
+    updateArticlesList(defaultArticleType);
+  }, []);
+
+  const updateArticlesList = (articleType) => {
+    getArticles(articleType).then((res) => {
       setArticlesList(res.data.articles);
       setBackendError(false);
     }).catch(function (error) {
         console.log(error);
         setBackendError(true);
     });
-  }, []);
+  }
 
   const sortByDate = () => {
     sort(articlesList);
@@ -36,14 +33,56 @@ const Articles = () => {
     setArticlesList(sortedArticles);
   }
 
-  const onCheckboxClicked = (checkBoxType) => {
-    getArticles(checkBoxType).then((res) => {
-      setArticlesList(res.data.articles);
-      setBackendError(false);
+  const getBothArticlesTypes = () => {
+    let articlesList = [];
+    getArticles('sports').then((res) => {
+      articlesList = res.data.articles;
+      getArticles('fashion').then((res) =>{
+        articlesList = articlesList.concat(res.data.articles);
+        console.log('concatenated articles', articlesList);
+        setArticlesList(articlesList);
+        setBackendError(false);
+      }).catch(function(error) {
+        setBackendError(true)
+      })
     }).catch(function (error) {
         setBackendError(true);
     });
+
   }
+
+  const [checkedItems, setCheckedItems] = useState({});
+
+  useEffect(() => {
+    if (checkedItems.fashion && checkedItems.sports) {
+      getBothArticlesTypes();
+    } else if (checkedItems.fashion) {
+      updateArticlesList('fashion');
+    } else if (checkedItems.sports) {
+      updateArticlesList('sports');
+    }
+ }, [checkedItems]);
+ 
+
+  const handleChange = event => {
+    setCheckedItems({
+      ...checkedItems,
+      [event.target.name]: event.target.checked
+    });
+  };
+
+  const checkboxes = [
+    {
+      name: "fashion",
+      key: "checkBox1",
+      label: "Fashion"
+    },
+    {
+      name: "sports",
+      key: "checkBox2",
+      label: "Sports"
+    }
+  ];
 
   return (
     <ui.Container>
@@ -60,24 +99,16 @@ const Articles = () => {
         Data source
       </ui.CheckboxesText>
       <ui.Checkboxes>
-      <Checkbox
-          title="Fashion"
-          onClick={
-            v => {
-              setCheckboxState({ fashionCheckbox: v })
-              onCheckboxClicked('fashion');
-            }
-          }
-          checked={checkboxState.fashionCheckbox}
-        />
-        <Checkbox
-          title="Sports"
-          onClick={v => {
-            setCheckboxState({ sportsCheckbox: v })
-            onCheckboxClicked('sports');
-          }}
-          checked={checkboxState.sportsCheckbox}
-        />
+      {checkboxes.map(item => (
+        <label key={item.key}>
+          <Checkbox
+            name={item.name}
+            checked={checkedItems[item.name]}
+            onChange={handleChange}
+          />
+          {item.label}
+        </label>
+      ))}
         </ui.Checkboxes>
     </ui.FiltersContainer>
       <ui.ArticlesListContainer>

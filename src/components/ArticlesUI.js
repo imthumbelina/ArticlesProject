@@ -65,6 +65,10 @@ export const Checkboxes = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @media (max-width: 800px) {
+    flex-direction: row;
+  }
 `;
 
 export const CheckboxesText = styled.div`
