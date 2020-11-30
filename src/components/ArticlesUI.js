@@ -1,7 +1,5 @@
-import styled from "styled-components";
-import { mediumFont, smallFont, lightGrey, fontFamily, largeFont } from '../theme/theme';
-
-// Styled component named StyledButton
+import styled from 'styled-components'
+import { mediumFont, smallFont, fontFamily, largeFont } from '../theme/theme'
 
 export const Container = styled.div`
   display: flex;
@@ -17,14 +15,14 @@ export const ArticlesContainer = styled.div`
   font-size: ${mediumFont};
   font-family: ${fontFamily};
   flex: 80%;
-`;
+`
 
 export const ArticlesListContainer = styled.div`
   flex: 80%;
   @media (max-width: 800px) {
     flex: 100%;
 }
-`;
+`
 
 export const FiltersContainer = styled.div`
   flex: 20%;
@@ -37,9 +35,9 @@ export const FiltersContainer = styled.div`
     flex: 50%;
     height: 15%;
 }
-`;
+`
 
-export const SortingContainer = styled.p`
+export const SortingContainer = styled.div`
   font-size: ${largeFont};
   display: flex;
   justify-content: flex-end;
@@ -47,19 +45,23 @@ export const SortingContainer = styled.p`
 
   @media (max-width: 800px) {
     flex: 50%;
+    font-size: ${smallFont};
   }
-`;
+`
 
 export const ArticlesList = styled.div`
-`;
+`
 
 export const SortButton = styled.button`
   border: 2px solid grey;
   border-radius: 20px;
   font-size: ${mediumFont};
-  margin: 0.5em;
   padding: 0.25em 1em;
-`;
+  @media (max-width: 800px) {
+    flex: 50%;
+    font-size: ${smallFont};
+  }
+`
 
 export const Checkboxes = styled.div`
   display: flex;
@@ -69,7 +71,7 @@ export const Checkboxes = styled.div`
   @media (max-width: 800px) {
     flex-direction: row;
   }
-`;
+`
 
 export const CheckboxesText = styled.div`
   font-size: ${largeFont};

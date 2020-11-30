@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { largeFont} from '../../theme/theme';
+import styled from 'styled-components'
+import { largeFont } from '../../theme/theme'
 
 export const ErrorText = styled.div`
     display: flex;
