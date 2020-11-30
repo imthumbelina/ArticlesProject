@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { mediumFont, smallFont, fontFamily, largeFont } from '../theme/theme'
+import { mediumFont, smallFont, fontFamily, largeFont } from '../../theme/theme'
 
 export const Container = styled.div`
   display: flex;

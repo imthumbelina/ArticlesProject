@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { getArticles } from '../../src/apiProvider/apiProvider'
-import { sort } from '../helpers/sortDate'
-import ArticlesListItem from '../components/ArticleListItem/ArticleListItem'
-import * as ui from './ArticlesUI'
-import Checkbox from './Checkbox/Checkbox'
-import ErrorPage from './Error/Error'
+import { getArticles } from '../../apiProvider/apiProvider'
+import { sort } from '../../helpers/sortDate'
+import ArticlesListItem from '../ArticleListItem/ArticleListItem'
+import * as ui from './ArticlesPageUI'
+import Checkbox from '../Checkbox/Checkbox'
+import ErrorPage from '../Error/Error'
 
 const checkboxesConfiguration = [
   {
@@ -19,7 +19,7 @@ const checkboxesConfiguration = [
   }
 ]
 
-const Articles = () => {
+const ArticlesPage = () => {
   const [articlesList, setArticlesList] = useState([])
   const [backendError, setBackendError] = useState(false)
   const [checkedItems, setCheckedItems] = useState({})
@@ -122,4 +122,4 @@ const Articles = () => {
   )
 }
 
-export default Articles
+export default ArticlesPage

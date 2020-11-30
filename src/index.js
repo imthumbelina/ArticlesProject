@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Articles from '../src/components/Articles'
+import Articles from './components/ArticlesPage/ArticlesPage'
 import './index.css'
 
 const App = () => {
